@@ -1,0 +1,64 @@
+# This file contains the configuration to how to start varius servers.
+
+
+[Servers]
+
+    #Lists all implementations that are suported. Every server implementation
+    #must implement some functionality for editing their settings, so if you
+    #want to add a new implementation, the code should tell you what implementaions
+    #its missing.
+    implementations = [
+        "Feather",
+        "Spigot",
+        "Vanilla", #Mojangs version
+        "CraftBukkit",
+        "Cuberite"
+    ]
+
+    [Servers.Feather_1_13_2]
+    implementation = "Feather"                #Says what server implementation this is. It is among other things used for determining how to edit the servers settings.
+                                              #It must be that same as one of the values in Servers.implementations. 
+                                              
+    start_command= "./feather-server"         #The bash command to start the server.
+    directory="./servers/feather/1.13.2/"     #The directory containing the server files that is going to be copied before use.
+
+
+    
+    [Servers.Feather_master]
+    implementation = "Feather"
+    start_command = "./feather-server"
+    build_command = "cargo build --release" 
+    git_url="https://github.com/feather-rs/feather.git"
+    git_branch="master" #This entry is optional 
+
+
+    [Servers.Vanilla_1_13_2]
+    implementation = "Vanilla"
+    download_url = "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"
+    start_command = "java -Xmx1024M -Xms1024M -jar server.jar nogui "
+    
+    [Servers.CraftBukkit_1_13_2]
+    implementation = "CraftBukkit"
+    download_url = "https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.13.2.jar"
+    start_command = "java -jar craftbukkit-1.13.2.jar"
+
+    [Servers.Cuberite_1_12_2]
+    implementation = "Cuberite"
+    download_url = "https://download.cuberite.org/linux-x86_64/Cuberite.tar.gz"
+    start_command = "./Cuberite"
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
